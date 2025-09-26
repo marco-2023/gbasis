@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -70,7 +67,6 @@
     <link rel="prev" title="Gbasis publication examples" href="../tutorial/JCP_paper.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -86,8 +82,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -95,6 +102,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -102,8 +110,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -119,8 +127,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -150,17 +157,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="Ayers Lab - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Ayers Lab - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Ayers Lab - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -199,14 +210,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -350,16 +356,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -468,6 +482,12 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.parsers.make_contractions"><code class="docutils literal notranslate"><span class="pre">make_contractions()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.parsers.parse_gbs"><code class="docutils literal notranslate"><span class="pre">parse_gbs()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.parsers.parse_nwchem"><code class="docutils literal notranslate"><span class="pre">parse_nwchem()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gbasis.screening">gbasis.screening module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.screening.compute_primitive_cutoff_radius"><code class="docutils literal notranslate"><span class="pre">compute_primitive_cutoff_radius()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.screening.get_points_mask_for_contraction"><code class="docutils literal notranslate"><span class="pre">get_points_mask_for_contraction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.screening.is_two_index_overlap_screened"><code class="docutils literal notranslate"><span class="pre">is_two_index_overlap_screened()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gbasis.spherical">gbasis.spherical module</a><ul class="nav section-nav flex-column">
@@ -600,7 +620,6 @@
 <li class="toctree-l4"><a class="reference internal" href="gbasis.integrals.html#gbasis.integrals.overlap.Overlap.construct_array_contraction"><code class="docutils literal notranslate"><span class="pre">Overlap.construct_array_contraction()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="gbasis.integrals.html#gbasis.integrals.overlap.is_integral_screened"><code class="docutils literal notranslate"><span class="pre">is_integral_screened()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="gbasis.integrals.html#gbasis.integrals.overlap.overlap_integral"><code class="docutils literal notranslate"><span class="pre">overlap_integral()</span></code></a></li>
 </ul>
 </li>
@@ -2336,6 +2355,117 @@ set has an angular momentum greater than “k”, an error will be raised.</p>
 </dd></dl>
 
 </section>
+<section id="module-gbasis.screening">
+<span id="gbasis-screening-module"></span><h2>gbasis.screening module<a class="headerlink" href="#module-gbasis.screening" title="Link to this heading">#</a></h2>
+<p>1 and 2-index screening functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gbasis.screening.compute_primitive_cutoff_radius">
+<span class="sig-prename descclassname"><span class="pre">gbasis.screening.</span></span><span class="sig-name descname"><span class="pre">compute_primitive_cutoff_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.screening.compute_primitive_cutoff_radius" title="Link to this definition">#</a></dt>
+<dd><p>Compute the cutoff radius for a primitive Gaussian.</p>
+<p>The cutoff radius is the maximum distance from the center of the primitive Gaussian at which the
+radial density remains above a given tolerance <span class="math notranslate nohighlight">\(\epsilon\)</span>. This radius is computed by
+solving the equation:</p>
+<div class="math notranslate nohighlight">
+\[r^{2\ell} \chi(r)^2 = \epsilon^2\]</div>
+<p>where <span class="math notranslate nohighlight">\(\chi(r)\)</span> is the radial part of the primitive Gaussian, defined as:</p>
+<div class="math notranslate nohighlight">
+\[\chi(r) = c \, n \, e^{-\alpha r^2}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(c\)</span> is the coefficient of the primitive Gaussian, <span class="math notranslate nohighlight">\(\alpha\)</span> is its exponent,
+<span class="math notranslate nohighlight">\(\ell\)</span> is the angular momentum quantum number, and <span class="math notranslate nohighlight">\(n\)</span> is the normalization factor
+given by:</p>
+<div class="math notranslate nohighlight">
+\[n = \left( \frac{2 \alpha}{\pi} \right)^{\frac{1}{4}}
+    \frac{(4 \alpha)^{\frac{\ell}{2}}}{\sqrt{(2\ell + 1)!!}}\]</div>
+<section id="id141">
+<h3>Parameters<a class="headerlink" href="#id141" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>c<span class="classifier">float</span></dt><dd><p>Coefficient of the primitive Gaussian.</p>
+</dd>
+<dt>alpha<span class="classifier">float</span></dt><dd><p>Exponent <span class="math notranslate nohighlight">\(\alpha\)</span> of the primitive Gaussian.</p>
+</dd>
+<dt>angm<span class="classifier">int</span></dt><dd><p>Angular momentum quantum number <span class="math notranslate nohighlight">\(\ell\)</span> of the primitive Gaussian.</p>
+</dd>
+<dt>dens_tol<span class="classifier">float</span></dt><dd><p>Radial density tolerance <span class="math notranslate nohighlight">\(\epsilon\)</span> for computing the cutoff radius.</p>
+</dd>
+</dl>
+</section>
+<section id="id142">
+<h3>Returns<a class="headerlink" href="#id142" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>float</dt><dd><p>The cutoff radius for the primitive Gaussian.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gbasis.screening.get_points_mask_for_contraction">
+<span class="sig-prename descclassname"><span class="pre">gbasis.screening.</span></span><span class="sig-name descname"><span class="pre">get_points_mask_for_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.screening.get_points_mask_for_contraction" title="Link to this definition">#</a></dt>
+<dd><p>Return a boolean mask indicating which points should be screened for a contraction shell</p>
+<p>A point is considered screened if it lies farther from the contraction center than a cutoff
+radius computed from the contraction parameters and the screening tolerance
+(see <a class="reference internal" href="#gbasis.screening.compute_primitive_cutoff_radius" title="gbasis.screening.compute_primitive_cutoff_radius"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_primitive_cutoff_radius()</span></code></a>).</p>
+<section id="id143">
+<h3>Parameters<a class="headerlink" href="#id143" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>contractions<span class="classifier">GeneralizedContractionShell</span></dt><dd><p>Contracted Cartesian Gaussians (of the same shell) for which the mask is computed.</p>
+</dd>
+<dt>points<span class="classifier">np.ndarray of shape (N, 3)</span></dt><dd><p>Cartesian coordinates of the points in space (in atomic units) where the
+basis functions are evaluated. Rows correspond to points; columns
+correspond to the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> components.</p>
+</dd>
+<dt>tol_screen<span class="classifier">float</span></dt><dd><p>Screening tolerance for excluding points. This value, together with the
+minimum contraction parameters, determines a cutoff distance. Points
+farther than the cutoff are excluded from contraction evaluation.</p>
+</dd>
+</dl>
+</section>
+<section id="id144">
+<h3>Returns<a class="headerlink" href="#id144" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>np.ndarray of bool, shape (N,)</dt><dd><p>Boolean mask where <cite>False</cite> marks points to be screened out.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gbasis.screening.is_two_index_overlap_screened">
+<span class="sig-prename descclassname"><span class="pre">gbasis.screening.</span></span><span class="sig-name descname"><span class="pre">is_two_index_overlap_screened</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.screening.is_two_index_overlap_screened" title="Link to this definition">#</a></dt>
+<dd><p>Return True if the integral should be screened.</p>
+<div class="math notranslate nohighlight">
+\[d_{A_s;B_t} &gt; \sqrt{-\frac{\alpha_{ min(\alpha_{s,A})} +
+\alpha_{ min(\alpha_{t,B})} }{ \alpha_{ min(\alpha_{s,A})}
+ \alpha_{ min(\alpha_{t,B})} } \ln \varepsilon }\]</div>
+<p>where <span class="math notranslate nohighlight">\(d\)</span> is the cut-off distance at which shells do not interact with each other.
+<span class="math notranslate nohighlight">\(A\)</span> and <cite>B</cite> are the atoms each contraction are respectively centered on.
+:math: <cite>alpha</cite> is the gaussian exponent
+:math: <cite>s</cite> and <cite>t</cite> index primitive Gaussian shells centered on atom <cite>A</cite> and <cite>B</cite> respectively.</p>
+<section id="id145">
+<h3>Parameters<a class="headerlink" href="#id145" title="Link to this heading">#</a></h3>
+<dl class="simple">
+<dt>contractions_one<span class="classifier">GeneralizedContractionShell</span></dt><dd><p>Contracted Cartesian Gaussians (of the same shell) associated with the first index of
+the integral.</p>
+</dd>
+<dt>contractions_two<span class="classifier">GeneralizedContractionShell</span></dt><dd><p>Contracted Cartesian Gaussians (of the same shell) associated with the second index of
+the integral.</p>
+</dd>
+<dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening two-index integrals. The <cite>tol_screen</cite> is combined with the
+minimum contraction exponents to compute a cutoff which is compared to the distance between
+the contraction centers to decide whether the integral should be set to zero.</p>
+</dd>
+</dl>
+</section>
+<section id="id146">
+<h3>Returns<a class="headerlink" href="#id146" title="Link to this heading">#</a></h3>
+<dl>
+<dt>value<span class="classifier"><cite>bool</cite></span></dt><dd><p>If integral should be screened, return <cite>True</cite></p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
 <section id="module-gbasis.spherical">
 <span id="gbasis-spherical-module"></span><h2>gbasis.spherical module<a class="headerlink" href="#module-gbasis.spherical" title="Link to this heading">#</a></h2>
 <p>Convert from Cartesian Gaussians to spherical Gaussians.</p>
@@ -2347,8 +2477,8 @@ set has an angular momentum greater than “k”, an error will be raised.</p>
 \[C^{angmom,mag,i,j,k} = -1^{i + k - \text{shift_factor}} * (1/4)^i * {angmom \choose i}
 * {(angmom - i) \choose (|mag| + i)} * {i \choose j} * {|mag| \choose 2 * k},\]</div>
 <p>where <span class="math notranslate nohighlight">\(shift_factor = 0\)</span> if <span class="math notranslate nohighlight">\(mag &gt;= 0\)</span> and <span class="math notranslate nohighlight">\(shift_factor = 1/2\)</span> if <span class="math notranslate nohighlight">\(mag &lt; 0\)</span>    .</p>
-<section id="id141">
-<h3>Parameters<a class="headerlink" href="#id141" title="Link to this heading">#</a></h3>
+<section id="id147">
+<h3>Parameters<a class="headerlink" href="#id147" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>angmom<span class="classifier">int</span></dt><dd><p>The angular momentum of the Gaussian primitive(s).</p>
 </dd>
@@ -2360,15 +2490,15 @@ set has an angular momentum greater than “k”, an error will be raised.</p>
 </dd>
 </dl>
 </section>
-<section id="id142">
-<h3>Returns<a class="headerlink" href="#id142" title="Link to this heading">#</a></h3>
+<section id="id148">
+<h3>Returns<a class="headerlink" href="#id148" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>coeff<span class="classifier">float</span></dt><dd><p>The real solid harmonic expansion coefficient.</p>
 </dd>
 </dl>
 </section>
-<section id="id143">
-<h3>Raises<a class="headerlink" href="#id143" title="Link to this heading">#</a></h3>
+<section id="id149">
+<h3>Raises<a class="headerlink" href="#id149" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>TypeError</dt><dd><p>If <cite>angmom</cite> is not an integer.
 If <cite>mag</cite> is not an integer.
@@ -2378,7 +2508,7 @@ If <cite>k</cite> is not a float.</p>
 </dd>
 <dt>ValueError</dt><dd><p>If <cite>angmom</cite> is negative.
 If <cite>mag</cite> has a greater magnitude than angmom.
-If <a href="#id144"><span class="problematic" id="id145">`</span></a>k is not either an integer (mag &gt;= 0) or a half integer (mag &lt; 0).</p>
+If <a href="#id150"><span class="problematic" id="id151">`</span></a>k is not either an integer (mag &gt;= 0) or a half integer (mag &lt; 0).</p>
 </dd>
 </dl>
 </section>
@@ -2390,8 +2520,8 @@ If <a href="#id144"><span class="problematic" id="id145">`</span></a>k is not ei
 <dd><p>Generate the transformation matrix for a given shell.</p>
 <p>The Cartesian contractions are ordered as given in <cite>cartesian_order</cite>. The spherical contractions
 are ordered as given in <cite>spherical_order</cite>.</p>
-<section id="id146">
-<h3>Parameters<a class="headerlink" href="#id146" title="Link to this heading">#</a></h3>
+<section id="id152">
+<h3>Parameters<a class="headerlink" href="#id152" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>angmom<span class="classifier">int</span></dt><dd><p>The angular momentum <span class="math notranslate nohighlight">\(\ell\)</span> of the basis function(s).</p>
 </dd>
@@ -2408,15 +2538,15 @@ GeneralizedContractionShell.angmom_conventions_sph for details.</p>
 </dd>
 </dl>
 </section>
-<section id="id147">
-<h3>Returns<a class="headerlink" href="#id147" title="Link to this heading">#</a></h3>
+<section id="id153">
+<h3>Returns<a class="headerlink" href="#id153" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>transform<span class="classifier">np.ndarray((angmom + 1)*(angmom + 2) / 2, 2 * angmom + 1)</span></dt><dd><p>The transformation matrix from Cartesian primitives to spherical primitives.</p>
 </dd>
 </dl>
 </section>
-<section id="id148">
-<h3>Raises<a class="headerlink" href="#id148" title="Link to this heading">#</a></h3>
+<section id="id154">
+<h3>Raises<a class="headerlink" href="#id154" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>TypeError</dt><dd><p>If <cite>angmom</cite> is not an integer.
 If <cite>cartesian_order</cite> is not an array.
@@ -2441,8 +2571,8 @@ If <cite>spherical_order</cite> does not contain exactly <span class="math notra
 <div class="math notranslate nohighlight">
 \[N^S_{angmom,m} = 1/(2^{|m|} * angmom!) * \sqrt{2 * (angmom + |{m}|)! * (angmom - |{m}|)! / 2^{\delta_0^m}},\]</div>
 <p>where :math: <cite>del{0, m}</cite> is the Kronecker delta of 0 and m.</p>
-<section id="id149">
-<h3>Parameters<a class="headerlink" href="#id149" title="Link to this heading">#</a></h3>
+<section id="id155">
+<h3>Parameters<a class="headerlink" href="#id155" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>angmom<span class="classifier">int</span></dt><dd><p>The angular momentum of the basis function(s).</p>
 </dd>
@@ -2450,15 +2580,15 @@ If <cite>spherical_order</cite> does not contain exactly <span class="math notra
 </dd>
 </dl>
 </section>
-<section id="id150">
-<h3>Returns<a class="headerlink" href="#id150" title="Link to this heading">#</a></h3>
+<section id="id156">
+<h3>Returns<a class="headerlink" href="#id156" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>norm<span class="classifier">float</span></dt><dd><p>The normalization constant of the real solid harmonic.</p>
 </dd>
 </dl>
 </section>
-<section id="id151">
-<h3>Raises<a class="headerlink" href="#id151" title="Link to this heading">#</a></h3>
+<section id="id157">
+<h3>Raises<a class="headerlink" href="#id157" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>TypeError</dt><dd><p>If <cite>angmom</cite> is not an integer.
 If <cite>mag</cite> is not an integer.</p>
@@ -2479,8 +2609,8 @@ If <cite>mag</cite> has a greater magnitude than <cite>angmom</cite>.</p>
 \sum_k={shift_factor}^{[(|{mag}|-1)/2] + 0.5} C^{angmom,m_i,j,k} x^a_x y^a_y z^a_z,\]</div>
 <p>where <span class="math notranslate nohighlight">\(a_x = 2t + |mag| - 2(u + v)\)</span>, <span class="math notranslate nohighlight">\(a_y = 2(u + v)\)</span>,
 and <span class="math notranslate nohighlight">\(a_z = angmom - 2t - |mag|\)</span>.</p>
-<section id="id152">
-<h3>Parameters<a class="headerlink" href="#id152" title="Link to this heading">#</a></h3>
+<section id="id158">
+<h3>Parameters<a class="headerlink" href="#id158" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>angmom<span class="classifier">int</span></dt><dd><p>The angular momentum of the basis function(s).</p>
 </dd>
@@ -2488,15 +2618,15 @@ and <span class="math notranslate nohighlight">\(a_z = angmom - 2t - |mag|\)</sp
 </dd>
 </dl>
 </section>
-<section id="id153">
-<h3>Returns<a class="headerlink" href="#id153" title="Link to this heading">#</a></h3>
+<section id="id159">
+<h3>Returns<a class="headerlink" href="#id159" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>harmonic<span class="classifier">dict</span></dt><dd><p>The Cartesian components of a Gaussian primitive, linked to the associated coefficient.</p>
 </dd>
 </dl>
 </section>
-<section id="id154">
-<h3>Raises<a class="headerlink" href="#id154" title="Link to this heading">#</a></h3>
+<section id="id160">
+<h3>Raises<a class="headerlink" href="#id160" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>TypeError</dt><dd><p>If <cite>angmom</cite> is not an integer.
 If <cite>mag</cite> is not an integer.</p>
@@ -2516,22 +2646,22 @@ If <cite>mag</cite> has a greater magnitude than <cite>angmom</cite>.</p>
 \[\begin{split}\mathrm{shift\_factor} = \begin{cases}
 0 &amp; \mathrm{mag} \geq 0\\
 \frac{1}{2} &amp; \mathrm{mag} &lt; 0 \end{cases}\end{split}\]</div>
-<section id="id155">
-<h3>Parameters<a class="headerlink" href="#id155" title="Link to this heading">#</a></h3>
+<section id="id161">
+<h3>Parameters<a class="headerlink" href="#id161" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>mag<span class="classifier">int</span></dt><dd><p>The magnetic quantum number of the basis function.</p>
 </dd>
 </dl>
 </section>
-<section id="id156">
-<h3>Returns<a class="headerlink" href="#id156" title="Link to this heading">#</a></h3>
+<section id="id162">
+<h3>Returns<a class="headerlink" href="#id162" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>shift_factor<span class="classifier">float</span></dt><dd><p>The shift factor for calculating solid harmonics.</p>
 </dd>
 </dl>
 </section>
-<section id="id157">
-<h3>Raises<a class="headerlink" href="#id157" title="Link to this heading">#</a></h3>
+<section id="id163">
+<h3>Raises<a class="headerlink" href="#id163" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>TypeError</dt><dd><p>If <cite>mag</cite> is not an integer.</p>
 </dd>
@@ -2549,8 +2679,8 @@ If <cite>mag</cite> has a greater magnitude than <cite>angmom</cite>.</p>
 <dd><p>Wrap scipy.special.factorial2 to return 1.0 when the input is not positive.</p>
 <p>This is a temporary workaround to address issue #129, while we wait for Scipy’s update.
 To learn more, see <a class="github reference external" href="https://github.com/scipy/scipy/issues/18409">scipy/scipy#18409</a>.</p>
-<section id="id158">
-<h3>Parameters<a class="headerlink" href="#id158" title="Link to this heading">#</a></h3>
+<section id="id164">
+<h3>Parameters<a class="headerlink" href="#id164" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>n<span class="classifier">int or np.ndarray</span></dt><dd><p>Values to calculate n!! for. If n &lt;= 0, the return value is 1.</p>
 </dd>
@@ -2566,23 +2696,23 @@ To learn more, see <a class="github reference external" href="https://github.com
 <dt class="sig sig-object py" id="gbasis.wrappers.from_iodata">
 <span class="sig-prename descclassname"><span class="pre">gbasis.wrappers.</span></span><span class="sig-name descname"><span class="pre">from_iodata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.wrappers.from_iodata" title="Link to this definition">#</a></dt>
 <dd><p>Return basis set stored within the <cite>IOData</cite> instance in <cite>iodata</cite>.</p>
-<section id="id159">
-<h3>Parameters<a class="headerlink" href="#id159" title="Link to this heading">#</a></h3>
+<section id="id165">
+<h3>Parameters<a class="headerlink" href="#id165" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>mol<span class="classifier">iodata.iodata.IOData</span></dt><dd><p><cite>IOData</cite> instance from <cite>iodata</cite> module.</p>
 </dd>
 </dl>
 </section>
-<section id="id160">
-<h3>Returns<a class="headerlink" href="#id160" title="Link to this heading">#</a></h3>
+<section id="id166">
+<h3>Returns<a class="headerlink" href="#id166" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>basis<span class="classifier">tuple of gbasis.contraciton.GeneralizedContractionShell</span></dt><dd><p>Basis set object used within the <cite>gbasis</cite> module.
 <cite>GeneralizedContractionShell</cite> corresponds to the <cite>Shell</cite> object within <cite>iodata.basis</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id161">
-<h3>Raises<a class="headerlink" href="#id161" title="Link to this heading">#</a></h3>
+<section id="id167">
+<h3>Raises<a class="headerlink" href="#id167" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If <cite>mol</cite> is not an <cite>iodata.iodata.IOData</cite> instance.
 If the primitive normalization scheme of the shells in <cite>IOData</cite> instance is not “L2”.</p>
@@ -2591,8 +2721,8 @@ If the primitive normalization scheme of the shells in <cite>IOData</cite> insta
 </dd>
 </dl>
 </section>
-<section id="id162">
-<h3>Notes<a class="headerlink" href="#id162" title="Link to this heading">#</a></h3>
+<section id="id168">
+<h3>Notes<a class="headerlink" href="#id168" title="Link to this heading">#</a></h3>
 <p>The version of the module <cite>iodata</cite> must be greater than 0.1.7.</p>
 </section>
 </dd></dl>
@@ -2601,30 +2731,30 @@ If the primitive normalization scheme of the shells in <cite>IOData</cite> insta
 <dt class="sig sig-object py" id="gbasis.wrappers.from_pyscf">
 <span class="sig-prename descclassname"><span class="pre">gbasis.wrappers.</span></span><span class="sig-name descname"><span class="pre">from_pyscf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mol</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.wrappers.from_pyscf" title="Link to this definition">#</a></dt>
 <dd><p>Return basis set stored within the <cite>Mole</cite> instance in <cite>pyscf</cite>.</p>
-<section id="id163">
-<h3>Parameters<a class="headerlink" href="#id163" title="Link to this heading">#</a></h3>
+<section id="id169">
+<h3>Parameters<a class="headerlink" href="#id169" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>mol<span class="classifier">pyscf.gto.mole.Mole</span></dt><dd><p><cite>Mole</cite> object in <cite>pyscf</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id164">
-<h3>Returns<a class="headerlink" href="#id164" title="Link to this heading">#</a></h3>
+<section id="id170">
+<h3>Returns<a class="headerlink" href="#id170" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>basis<span class="classifier">tuple of gbasis.contraciton.GeneralizedContractionShell</span></dt><dd><p>Contractions for each atom.
 Contractions are ordered by the atom first, then the contractions as ordered in <cite>pyscf</cite>.</p>
 </dd>
 </dl>
 </section>
-<section id="id165">
-<h3>Raises<a class="headerlink" href="#id165" title="Link to this heading">#</a></h3>
+<section id="id171">
+<h3>Raises<a class="headerlink" href="#id171" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>ValueError</dt><dd><p>If <cite>mol</cite> is not a <cite>pyscf.gto.mole.Mole</cite> instance.</p>
 </dd>
 </dl>
 </section>
-<section id="id166">
-<h3>Notes<a class="headerlink" href="#id166" title="Link to this heading">#</a></h3>
+<section id="id172">
+<h3>Notes<a class="headerlink" href="#id172" title="Link to this heading">#</a></h3>
 <p>This function touches the internal components of <cite>pyscf</cite>, which may or may not be documented.
 This function will break as soon as the internal components change. If so, please raise an issue
 at <a class="github reference external" href="https://github.com/theochem/gbasis">theochem/gbasis</a>. It is supported for, at least, <cite>pyscf</cite> version 1.6.1.</p>
@@ -2689,8 +2819,7 @@ at <a class="github reference external" href="https://github.com/theochem/gbasis
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2786,6 +2915,12 @@ at <a class="github reference external" href="https://github.com/theochem/gbasis
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.parsers.parse_nwchem"><code class="docutils literal notranslate"><span class="pre">parse_nwchem()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gbasis.screening">gbasis.screening module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.screening.compute_primitive_cutoff_radius"><code class="docutils literal notranslate"><span class="pre">compute_primitive_cutoff_radius()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.screening.get_points_mask_for_contraction"><code class="docutils literal notranslate"><span class="pre">get_points_mask_for_contraction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.screening.is_two_index_overlap_screened"><code class="docutils literal notranslate"><span class="pre">is_two_index_overlap_screened()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-gbasis.spherical">gbasis.spherical module</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.spherical.expansion_coeff"><code class="docutils literal notranslate"><span class="pre">expansion_coeff()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gbasis.spherical.generate_transformation"><code class="docutils literal notranslate"><span class="pre">generate_transformation()</span></code></a></li>
@@ -2851,8 +2986,8 @@ By The QC-Dev Community with the support of Digital Research Alliance of Canada 
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
