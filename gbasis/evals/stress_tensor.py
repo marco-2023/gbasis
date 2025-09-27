@@ -81,8 +81,7 @@ def evaluate_stress_tensor(
         Second parameter of the stress tensor.
         Default value is 0.
     screen_basis : bool, optional
-        Whether to screen out points with negligible contributions. Default value is True
-        (enable screening).
+        Whether to screen out points with negligible contributions. Default value is False.
     tol_screen : float
         Screening tolerance for excluding evaluations. Points with values below this tolerance
         will not be evaluated (they will be set to zero). Internal computed quantities that
@@ -217,8 +216,7 @@ def evaluate_ehrenfest_force(
         Second parameter of the stress tensor.
         Default value is 0.
     screen_basis : bool, optional
-        Whether to screen out points with negligible contributions. Default value is True
-        (enable screening).
+        Whether to screen out points with negligible contributions. Default value is False.
     tol_screen : float
         Screening tolerance for excluding evaluations. Points with values below this tolerance
         will not be evaluated (they will be set to zero). Internal computed quantities that
@@ -378,8 +376,7 @@ def evaluate_ehrenfest_hessian(
         If True, then the Hessian is symmetrized by averaging it with its transpose.
         Default value is False.
     screen_basis : bool, optional
-        Whether to screen out points with negligible contributions. Default value is True
-        (enable screening).
+        Whether to screen out points with negligible contributions. Default value is False.
     tol_screen : float
         Screening tolerance for excluding evaluations. Points with values below this tolerance
         will not be evaluated (they will be set to zero). Internal computed quantities that
