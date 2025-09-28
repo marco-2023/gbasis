@@ -255,66 +255,18 @@ class PointChargeIntegral(BaseTwoIndexSymmetric):
             coeffs_a, coeffs_b = coeffs_b, coeffs_a
             ab_swapped = True
 
-        if screen_basis:
-            pts_mask_one = get_points_mask_for_contraction(
-                contractions_one, points_coords, deriv_order=0, tol_screen=tol_screen
-            )
-            pts_mask_two = get_points_mask_for_contraction(
-                contractions_two, points_coords, deriv_order=0, tol_screen=tol_screen
-            )
-            pts_mask = np.logical_and(pts_mask_one, pts_mask_two)
-
-            # NOTE: Ordering convention for horizontal recursion of integrals
-            # axis 0 : a_x (size: angmom_a + 1)
-            # axis 1 : a_y (size: angmom_a + 1)
-            # axis 2 : a_z (size: angmom_a + 1)
-            # axis 3 : b_x (size: angmom_b + 1)
-            # axis 4 : b_y (size: angmom_b + 1)
-            # axis 5 : b_z (size: angmom_b + 1)
-            # axis 6 : point charge (size: N)
-            # axis 7 : index for segmented contractions of contraction a (size: M_a)
-            # axis 8 : index for segmented contractions of contraction b (size: M_b)
-            integrals = np.zeros(
-                (
-                    angmom_a + 1,
-                    angmom_a + 1,
-                    angmom_a + 1,
-                    angmom_b + 1,
-                    angmom_b + 1,
-                    angmom_b + 1,
-                    points_coords.shape[0],
-                    coeffs_a.shape[1],
-                    coeffs_b.shape[1],
-                ),
-                dtype=np.float64,
-            )
-            if np.any(pts_mask):
-                integrals[:, :, :, :, :, :, pts_mask, :, :] = _compute_one_elec_integrals(
-                    points_coords[pts_mask],
-                    cls.boys_func,
-                    coord_a,
-                    angmom_a,
-                    exps_a,
-                    coeffs_a,
-                    coord_b,
-                    angmom_b,
-                    exps_b,
-                    coeffs_b,
-                )
-
-        else:
-            integrals = _compute_one_elec_integrals(
-                points_coords,
-                cls.boys_func,
-                coord_a,
-                angmom_a,
-                exps_a,
-                coeffs_a,
-                coord_b,
-                angmom_b,
-                exps_b,
-                coeffs_b,
-            )
+        integrals = _compute_one_elec_integrals(
+            points_coords,
+            cls.boys_func,
+            coord_a,
+            angmom_a,
+            exps_a,
+            coeffs_a,
+            coord_b,
+            angmom_b,
+            exps_b,
+            coeffs_b,
+        )
         integrals = np.transpose(integrals, (7, 0, 1, 2, 8, 3, 4, 5, 6))
 
         angmoms_a_x, angmoms_a_y, angmoms_a_z = angmoms_a.T
