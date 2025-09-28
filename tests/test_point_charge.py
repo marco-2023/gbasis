@@ -132,7 +132,9 @@ def test_construct_array_contraction(screen_basis, tol_screen):
     )
 
 
-def test_point_charge_cartesian():
+@pytest.mark.parametrize("screen_basis", [True, False])
+@pytest.mark.parametrize("tol_screen", [1e-8])
+def test_point_charge_cartesian(screen_basis, tol_screen):
     """Test gbasis.integrals.point_charge.point_charge_cartesian."""
     basis_dict = parse_nwchem(find_datafile("data_sto6g.nwchem"))
     basis = make_contractions(basis_dict, ["Kr"], np.array([[0, 0, 0]]), "cartesian")
@@ -140,12 +142,22 @@ def test_point_charge_cartesian():
 
     points_coords = np.random.rand(5, 3)
     points_charge = np.random.rand(5)
-    assert np.allclose(
-        point_charge_obj.construct_array_cartesian(
-            points_coords=points_coords, points_charge=points_charge
-        ),
-        point_charge_integral(basis, points_coords=points_coords, points_charge=points_charge),
+
+    value = point_charge_obj.construct_array_cartesian(
+        points_coords=points_coords,
+        points_charge=points_charge,
+        screen_basis=screen_basis,
+        tol_screen=tol_screen,
     )
+    reference = point_charge_integral(
+        basis, points_coords=points_coords, points_charge=points_charge, screen_basis=False
+    )
+
+    assert np.allclose(
+        value,
+        reference,
+        atol=tol_screen,
+    ), f"Max diff: {np.max(np.abs(value - reference))} is above tol_screen {tol_screen}"
 
 
 def test_point_charge_spherical():
