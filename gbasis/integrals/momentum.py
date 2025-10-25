@@ -70,7 +70,7 @@ class MomentumIntegral(BaseTwoIndexSymmetric):
             Contracted Cartesian Gaussians (of the same shell) associated with the second index of
             the momentum energy integral.
         screen_basis : bool, optional
-            A toggle to enable or disable screening. Default value is True to enable screening.
+            A toggle to enable or disable screening. Default value is False.
         tol_screen : float, optional
             The tolerance used for screening overlap integrals. `tol_screen` is combined with the
             minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -166,7 +166,7 @@ def momentum_integral(basis, transform=None, screen_basis=False, tol_screen=1e-8
         Default is no transformation.
         Default is no transformation.
     screen_basis : bool, optional
-        A toggle to enable or disable screening. Default value is True to enable screening.
+        A toggle to enable or disable screening. Default value is False.
     tol_screen : float, optional
         The tolerance used for screening overlap integrals. `tol_screen` is combined with the
         minimum contraction exponents to compute a cutoff which is compared to the distance
