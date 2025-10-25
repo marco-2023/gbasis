@@ -68,7 +68,7 @@ class KineticEnergyIntegral(BaseTwoIndexSymmetric):
             Contracted Cartesian Gaussians (of the same shell) associated with the second index of
             the kinetic energy integral.
         screen_basis : bool, optional
-            A toggle to enable or disable screening. Default value is True to enable screening.
+            A toggle to enable or disable screening. Default value is False.
         tol_screen : float, optional
             The tolerance used for screening overlap integrals. `tol_screen` is combined with the
             minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -174,7 +174,7 @@ def kinetic_energy_integral(basis, transform=None, screen_basis=False, tol_scree
         and index 0 of the array for contractions.
         Default is no transformation.
     screen_basis : bool, optional
-        A toggle to enable or disable screening. Default value is True to enable screening.
+        A toggle to enable or disable screening. Default value is False.
     tol_screen : float, optional
         The tolerance used for screening overlap integrals. `tol_screen` is combined with the
         minimum contraction exponents to compute a cutoff which is compared to the distance
