@@ -57,7 +57,7 @@ class MomentumIntegral(BaseTwoIndexSymmetric):
 
     @staticmethod
     def construct_array_contraction(
-        contractions_one, contractions_two, screen_basis=True, tol_screen=1e-8
+        contractions_one, contractions_two, screen_basis=False, tol_screen=1e-8
     ):
         """Return the integrals over the momentum operator of the given contractions.
 
@@ -140,7 +140,7 @@ class MomentumIntegral(BaseTwoIndexSymmetric):
         return -1j * np.transpose(output, (1, 2, 3, 4, 0))
 
 
-def momentum_integral(basis, transform=None, screen_basis=True, tol_screen=1e-8):
+def momentum_integral(basis, transform=None, screen_basis=False, tol_screen=1e-8):
     r"""Return integral over momentum operator of the given basis set.
 
     .. math::

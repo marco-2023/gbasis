@@ -60,7 +60,7 @@ class AngularMomentumIntegral(BaseTwoIndexSymmetric):
 
     @staticmethod
     def construct_array_contraction(
-        contractions_one, contractions_two, screen_basis=True, tol_screen=1e-8
+        contractions_one, contractions_two, screen_basis=False, tol_screen=1e-8
     ):
         """Return the integrals over the angular momentum operator of the given contractions.
 
@@ -183,7 +183,7 @@ class AngularMomentumIntegral(BaseTwoIndexSymmetric):
         return -1j * np.transpose(output, (3, 2, 4, 1, 0))
 
 
-def angular_momentum_integral(basis, transform=None, screen_basis=True, tol_screen=1e-8):
+def angular_momentum_integral(basis, transform=None, screen_basis=False, tol_screen=1e-8):
     r"""Return the integral over :math:`hat{L}` of the given basis set.
 
     .. math::

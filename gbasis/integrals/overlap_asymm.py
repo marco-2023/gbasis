@@ -65,7 +65,7 @@ class OverlapAsymmetric(BaseTwoIndexAsymmetric):
 
 
 def overlap_integral_asymmetric(
-    basis_one, basis_two, transform_one=None, transform_two=None, screen_basis=True, tol_screen=1e-8
+    basis_one, basis_two, transform_one=None, transform_two=None, screen_basis=False, tol_screen=1e-8
 ):
     r"""Return overlap integrals between two basis sets.
 
