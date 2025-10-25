@@ -55,7 +55,7 @@ class KineticEnergyIntegral(BaseTwoIndexSymmetric):
 
     @staticmethod
     def construct_array_contraction(
-        contractions_one, contractions_two, screen_basis=True, tol_screen=1e-8
+        contractions_one, contractions_two, screen_basis=False, tol_screen=1e-8
     ):
         """Return the evaluations of the given contractions at the given coordinates.
 
@@ -146,7 +146,7 @@ class KineticEnergyIntegral(BaseTwoIndexSymmetric):
         return -0.5 * np.sum(output, axis=0)
 
 
-def kinetic_energy_integral(basis, transform=None, screen_basis=True, tol_screen=1e-8):
+def kinetic_energy_integral(basis, transform=None, screen_basis=False, tol_screen=1e-8):
     r"""Return kinetic energy integral of the given basis set.
 
     .. math::

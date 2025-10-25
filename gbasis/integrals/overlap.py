@@ -53,7 +53,7 @@ class Overlap(BaseTwoIndexSymmetric):
 
     @staticmethod
     def construct_array_contraction(
-        contractions_one, contractions_two, screen_basis=True, tol_screen=1e-8
+        contractions_one, contractions_two, screen_basis=False, tol_screen=1e-8
     ):
         """Return the evaluations of the given contractions at the given coordinates.
 
@@ -134,7 +134,7 @@ class Overlap(BaseTwoIndexSymmetric):
         )[0]
 
 
-def overlap_integral(basis, transform=None, screen_basis=True, tol_screen=1e-8):
+def overlap_integral(basis, transform=None, screen_basis=False, tol_screen=1e-8):
     r"""Return overlap integral of the given basis set.
 
     .. math::

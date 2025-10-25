@@ -188,7 +188,7 @@ class Moment(BaseTwoIndexSymmetric):
 
 
 def moment_integral(
-    basis, moment_coord, moment_orders, transform=None, screen_basis=True, tol_screen=1e-8
+    basis, moment_coord, moment_orders, transform=None, screen_basis=False, tol_screen=1e-8
 ):
     r"""Return moment integral of the given basis set.
 
