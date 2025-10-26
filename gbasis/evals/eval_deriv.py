@@ -82,7 +82,7 @@ class EvalDeriv(BaseOneIndex):
             contraction (_eval_first_second_order_deriv_contractions()).
         screen_basis : bool, optional
             Whether to screen out points that are too far from the contraction center. Default value
-            False.
+            is False.
         tol_screen : float
             Screening tolerance for excluding points. This value, together with the
             minimum contraction parameters, determines a cutoff distance. Points
