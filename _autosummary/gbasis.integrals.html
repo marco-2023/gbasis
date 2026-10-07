@@ -617,7 +617,7 @@ of spherical Gaussians (linear combinations of atomic orbitals).
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gbasis.integrals.angular_momentum.AngularMomentumIntegral.construct_array_contraction">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.angular_momentum.AngularMomentumIntegral.construct_array_contraction" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.angular_momentum.AngularMomentumIntegral.construct_array_contraction" title="Link to this definition">#</a></dt>
 <dd><p>Return the integrals over the angular momentum operator of the given contractions.</p>
 <section id="parameters">
 <h4>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h4>
@@ -628,7 +628,7 @@ the angular momentum integral.</p>
 <dt>contractions_two<span class="classifier">GeneralizedContractionShell</span></dt><dd><p>Contracted Cartesian Gaussians (of the same shell) associated with the second index of
 the angular momentum integral.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -673,7 +673,7 @@ If contractions_two is not a <cite>GeneralizedContractionShell</cite> instance.<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gbasis.integrals.angular_momentum.angular_momentum_integral">
-<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.angular_momentum.</span></span><span class="sig-name descname"><span class="pre">angular_momentum_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.angular_momentum.angular_momentum_integral" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.angular_momentum.</span></span><span class="sig-name descname"><span class="pre">angular_momentum_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.angular_momentum.angular_momentum_integral" title="Link to this definition">#</a></dt>
 <dd><p>Return the integral over <span class="math notranslate nohighlight">\(hat{L}\)</span> of the given basis set.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left&lt; \hat{\mathbf{L}} \right&gt;
@@ -705,7 +705,7 @@ Transformation is applied to the left, i.e. the sum is over the index 1 of <cite
 and index 0 of the array for contractions.
 Default is no transformation.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -1416,7 +1416,7 @@ Gaussians (linear combinations of atomic orbitals).
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gbasis.integrals.kinetic_energy.KineticEnergyIntegral.construct_array_contraction">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.kinetic_energy.KineticEnergyIntegral.construct_array_contraction" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.kinetic_energy.KineticEnergyIntegral.construct_array_contraction" title="Link to this definition">#</a></dt>
 <dd><p>Return the evaluations of the given contractions at the given coordinates.</p>
 <section id="id55">
 <h4>Parameters<a class="headerlink" href="#id55" title="Link to this heading">#</a></h4>
@@ -1427,7 +1427,7 @@ the kinetic energy integral.</p>
 <dt>contractions_two<span class="classifier">GeneralizedContractionShell</span></dt><dd><p>Contracted Cartesian Gaussians (of the same shell) associated with the second index of
 the kinetic energy integral.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -1471,7 +1471,7 @@ If contractions_two is not a <cite>GeneralizedContractionShell</cite> instance.<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gbasis.integrals.kinetic_energy.kinetic_energy_integral">
-<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.kinetic_energy.</span></span><span class="sig-name descname"><span class="pre">kinetic_energy_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.kinetic_energy.kinetic_energy_integral" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.kinetic_energy.</span></span><span class="sig-name descname"><span class="pre">kinetic_energy_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.kinetic_energy.kinetic_energy_integral" title="Link to this definition">#</a></dt>
 <dd><p>Return kinetic energy integral of the given basis set.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
@@ -1496,7 +1496,7 @@ Transformation is applied to the left, i.e. the sum is over the index 1 of <cite
 and index 0 of the array for contractions.
 Default is no transformation.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -2235,7 +2235,7 @@ given coordinate system.
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gbasis.integrals.moment.Moment.construct_array_contraction">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_orders</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.moment.Moment.construct_array_contraction" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_orders</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.moment.Moment.construct_array_contraction" title="Link to this definition">#</a></dt>
 <dd><p>Return the evaluations of the given contractions at the given coordinates.</p>
 <section id="id116">
 <h4>Parameters<a class="headerlink" href="#id116" title="Link to this heading">#</a></h4>
@@ -2252,7 +2252,7 @@ the array.</p>
 Note that a two dimensional array must be given, even if there is only one set of orders
 of the moment.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -2309,7 +2309,7 @@ to change the order.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gbasis.integrals.moment.moment_integral">
-<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.moment.</span></span><span class="sig-name descname"><span class="pre">moment_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_orders</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.moment.moment_integral" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.moment.</span></span><span class="sig-name descname"><span class="pre">moment_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_orders</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.moment.moment_integral" title="Link to this definition">#</a></dt>
 <dd><p>Return moment integral of the given basis set.</p>
 <div class="math notranslate nohighlight">
 \[\int \phi_a (\mathbf{r}) (x - X_C)^{c_x} (y - Y_C)^{c_y} (z - Z_C)^{c_z}
@@ -2333,7 +2333,7 @@ Transformation is applied to the left, i.e. the sum is over the index 1 of <cite
 and index 0 of the array for contractions.
 Default is no transformation.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -2416,7 +2416,7 @@ spherical Gaussians (linear combinations of atomic orbitals).
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gbasis.integrals.momentum.MomentumIntegral.construct_array_contraction">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.momentum.MomentumIntegral.construct_array_contraction" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.momentum.MomentumIntegral.construct_array_contraction" title="Link to this definition">#</a></dt>
 <dd><p>Return the integrals over the momentum operator of the given contractions.</p>
 <section id="id125">
 <h4>Parameters<a class="headerlink" href="#id125" title="Link to this heading">#</a></h4>
@@ -2427,7 +2427,7 @@ the momentum energy integral.</p>
 <dt>contractions_two<span class="classifier">GeneralizedContractionShell</span></dt><dd><p>Contracted Cartesian Gaussians (of the same shell) associated with the second index of
 the momentum energy integral.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -2472,7 +2472,7 @@ If contractions_two is not a <cite>GeneralizedContractionShell</cite> instance.<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gbasis.integrals.momentum.momentum_integral">
-<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.momentum.</span></span><span class="sig-name descname"><span class="pre">momentum_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.momentum.momentum_integral" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.momentum.</span></span><span class="sig-name descname"><span class="pre">momentum_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.momentum.momentum_integral" title="Link to this definition">#</a></dt>
 <dd><p>Return integral over momentum operator of the given basis set.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left&lt; \hat{\mathbf{p}} \right&gt;
@@ -2495,7 +2495,7 @@ and index 0 of the array for contractions.
 Default is no transformation.
 Default is no transformation.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -2605,7 +2605,7 @@ given coordinate system.
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gbasis.integrals.overlap.Overlap.construct_array_contraction">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.overlap.Overlap.construct_array_contraction" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.overlap.Overlap.construct_array_contraction" title="Link to this definition">#</a></dt>
 <dd><p>Return the evaluations of the given contractions at the given coordinates.</p>
 <section id="id134">
 <h4>Parameters<a class="headerlink" href="#id134" title="Link to this heading">#</a></h4>
@@ -2616,7 +2616,7 @@ the overlap.</p>
 <dt>contractions_two<span class="classifier">GeneralizedContractionShell</span></dt><dd><p>Contracted Cartesian Gaussians (of the same shell) associated with the second index of
 the overlap.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -2659,7 +2659,7 @@ If contractions_two is not a <cite>GeneralizedContractionShell</cite> instance.<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gbasis.integrals.overlap.overlap_integral">
-<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.overlap.</span></span><span class="sig-name descname"><span class="pre">overlap_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.overlap.overlap_integral" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.overlap.</span></span><span class="sig-name descname"><span class="pre">overlap_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.overlap.overlap_integral" title="Link to this definition">#</a></dt>
 <dd><p>Return overlap integral of the given basis set.</p>
 <div class="math notranslate nohighlight">
 \[\int \phi_a (\mathbf{r}) \phi_b (\mathbf{r}) d\mathbf{r}\]</div>
@@ -2675,7 +2675,7 @@ Transformation is applied to the left, i.e. the sum is over the index 1 of <cite
 and index 0 of the array for contractions.
 Default is no transformation.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -2759,7 +2759,7 @@ the spherical contractions associated with <cite>contractions_two</cite>.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="gbasis.integrals.overlap_asymm.OverlapAsymmetric.construct_array_contraction">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.overlap_asymm.OverlapAsymmetric.construct_array_contraction" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_array_contraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contractions_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contractions_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.overlap_asymm.OverlapAsymmetric.construct_array_contraction" title="Link to this definition">#</a></dt>
 <dd><p>Return the evaluations of the given contractions at the given coordinates.</p>
 <section id="id141">
 <h4>Parameters<a class="headerlink" href="#id141" title="Link to this heading">#</a></h4>
@@ -2770,7 +2770,7 @@ the overlap.</p>
 <dt>contractions_two<span class="classifier">GeneralizedContractionShell</span></dt><dd><p>Contracted Cartesian Gaussians (of the same shell) associated with the second index of
 the overlap.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
@@ -2813,7 +2813,7 @@ If contractions_two is not a <cite>GeneralizedContractionShell</cite> instance.<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="gbasis.integrals.overlap_asymm.overlap_integral_asymmetric">
-<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.overlap_asymm.</span></span><span class="sig-name descname"><span class="pre">overlap_integral_asymmetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_two</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.overlap_asymm.overlap_integral_asymmetric" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">gbasis.integrals.overlap_asymm.</span></span><span class="sig-name descname"><span class="pre">overlap_integral_asymmetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">basis_one</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis_two</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_two</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gbasis.integrals.overlap_asymm.overlap_integral_asymmetric" title="Link to this definition">#</a></dt>
 <dd><p>Return overlap integrals between two basis sets.</p>
 <div class="math notranslate nohighlight">
 \[\int \phi_a (\mathbf{r}) \psi_b (\mathbf{r}) d\mathbf{r}\]</div>
@@ -2837,7 +2837,7 @@ Transformation is applied to the left, i.e. the sum is over the index 1 of <cite
 and index 0 of the array for contractions.
 Default is no transformation.</p>
 </dd>
-<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is True to enable screening.</p>
+<dt>screen_basis<span class="classifier">bool, optional</span></dt><dd><p>A toggle to enable or disable screening. Default value is False.</p>
 </dd>
 <dt>tol_screen<span class="classifier">float, optional</span></dt><dd><p>The tolerance used for screening overlap integrals. <cite>tol_screen</cite> is combined with the
 minimum contraction exponents to compute a cutoff which is compared to the distance
